@@ -1,0 +1,6 @@
+# ninja log v5
+3	551	1729522276492327277	CMakeFiles/Graph_Algorithms.dir/BFS_-_Stack_and_Queue/Stack_BFS.cpp.o	49bd4620c754b5c2
+804	915	1724765772573036910	Graph_Algorithms	88a64645c55714d9
+3	797	1729522259768972637	CMakeFiles/Graph_Algorithms.dir/main.cpp.o	e62e3a31a083e924
+0	51	1729522726537965518	build.ninja	9b8c36095c619b8e
+3	41	1729522726586314279	Graph_Algorithms	88a64645c55714d9

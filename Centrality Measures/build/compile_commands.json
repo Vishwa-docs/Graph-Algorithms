@@ -1,0 +1,8 @@
+[
+{
+  "directory": "/Users/daver/Desktop/Graph_Algorithms/build",
+  "command": "/Library/Developer/CommandLineTools/usr/bin/c++   -g -std=gnu++20 -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX14.4.sdk -o CMakeFiles/Graph_Algorithms.dir/main.cpp.o -c /Users/daver/Desktop/Graph_Algorithms/main.cpp",
+  "file": "/Users/daver/Desktop/Graph_Algorithms/main.cpp",
+  "output": "CMakeFiles/Graph_Algorithms.dir/main.cpp.o"
+}
+]
