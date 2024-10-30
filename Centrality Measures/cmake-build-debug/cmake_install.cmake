@@ -1,4 +1,4 @@
-# Install script for directory: /Users/daver/Desktop/Graph_Algorithms
+# Install script for directory: /Users/daver/Desktop/Graph-Algorithms/Centrality Measures
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -45,5 +45,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "/Users/daver/Desktop/Graph_Algorithms/cmake-build-debug/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "/Users/daver/Desktop/Graph-Algorithms/Centrality Measures/cmake-build-debug/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")

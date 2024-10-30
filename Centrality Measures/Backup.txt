@@ -4,7 +4,6 @@
 #include <queue>
 #include <unordered_map>
 #include <algorithm>
-#include <cmath> // For std::sqrt
 
 using namespace std;
 
@@ -14,7 +13,7 @@ class Graph {
 public:
     Graph(int n) // n vertices
     {
-        adj_matrix = vector<vector<int>>(n, vector<int>(n, 0)); // Filled with 0s
+        adj_matrix = vector<vector<int>> (n, vector<int>(n, 0)); // Filled with 0s
     }
 
     // Add both edges, considering undirected graph
@@ -38,7 +37,6 @@ public:
 
     ////////////////////////////
 
-    // n^2
     vector<int> degree_centrality()
     {
         int n = adj_matrix.size();
@@ -58,7 +56,6 @@ public:
     ////////////////////
 
     // Floyd-Warshall algo - All pairs Shortest path
-    // n^3
     vector<vector<int>> floyd_warshall()
     {
         int n = adj_matrix.size();
@@ -87,7 +84,6 @@ public:
         return dist;
     }
 
-    // n^3 -> n^2
     vector<double> closeness_centrality()
     {
         vector<vector<int>> dist = floyd_warshall();
@@ -114,78 +110,10 @@ public:
     }
 
     ///////////////////////////
-
-    // Approx O(k.|E|) {Iterations x Edges}
-    vector<double> eigenvector_centrality(double tolerance = 1e-6, int max_iterations = 100)
-    {
-        // tolerance - Threshold of Convergence, if change in centrality values is less than that it will stop
-        // max iter - in case of no convergence, then stop
-        int n = adj_matrix.size();
-        vector<double> centrality(n, 1.0); // Start with Uniform
-        vector<double> new_centrality(n);
-
-        for (int iter = 0; iter < max_iterations; iter++) {
-            double norm_factor = 0.0;
-
-            // New centralities
-            for (int i = 0; i < n; ++i) {
-                new_centrality[i] = 0.0;
-                for (int j = 0; j < n; ++j) {
-                    new_centrality[i] += adj_matrix[i][j] * centrality[j];
-                }
-                norm_factor += new_centrality[i] * new_centrality[i]; // normalization
-            }
-
-            norm_factor = sqrt(norm_factor); // Normalization Factor
-
-            if (norm_factor > 0) {
-                for (int i = 0; i < n; ++i) {
-                    new_centrality[i] /= norm_factor;
-                }
-            }
-
-            // Check convergence
-            double max_diff = 0.0;
-            for (int i = 0; i < n; ++i) {
-                max_diff = max(max_diff, fabs(new_centrality[i] - centrality[i]));
-            }
-
-            centrality.swap(new_centrality);
-
-            if (max_diff < tolerance) break; // converged
-        }
-
-        return centrality;
-    }
-
-    ///////////////////////////
-
-    // n^3 (Floyd part)
-    vector<double> harmonic_centrality()
-    {
-        vector<vector<int>> dist = floyd_warshall();
-        int n = adj_matrix.size();
-        vector<double> harmonic(n, 0.0);
-
-        // n^2
-        for (int i = 0; i < n; ++i) {
-            double sum_inverse_distances = 0.0;
-
-            for (int j = 0; j < n; ++j) {
-                if (dist[i][j] > 0 && dist[i][j] != numeric_limits<int>::max()) { // Only reachable nodes
-                    sum_inverse_distances += static_cast<double>(1) / dist[i][j]; // If yes, add inverse distance
-                }
-            }
-
-            harmonic[i] = sum_inverse_distances;
-        }
-
-        return harmonic;
-    }
 };
 
-void print_degree_centrality(Graph g) {
-    vector<int> degrees = g.degree_centrality();
+void print_degree_centrality(Graph i) {
+    vector<int> degrees = i.degree_centrality();
     cout << "Degree Centrality of the nodes: ";
     for (int degree : degrees) {
         cout << degree << " ";
@@ -193,28 +121,10 @@ void print_degree_centrality(Graph g) {
     cout << endl;
 }
 
-void print_closeness_centrality(Graph g) {
-    vector<double> closeness = g.closeness_centrality();
+void print_closeness_centrality(Graph i) {
+    vector<double> closeness = i.closeness_centrality();
     cout << "Closeness Centrality of the nodes: ";
     for (double centrality : closeness) {
-        cout << centrality << " ";
-    }
-    cout << endl;
-}
-
-void print_eigenvector_centrality(Graph g) {
-    vector<double> eigenvector_centralities = g.eigenvector_centrality();
-    cout << "Eigenvector Centrality of the nodes: ";
-    for (double centrality : eigenvector_centralities) {
-        cout << centrality << " ";
-    }
-    cout << endl;
-}
-
-void print_harmonic_centrality(Graph g) {
-    vector<double> harmonic_centralities = g.harmonic_centrality();
-    cout << "Harmonic Centrality of the nodes: ";
-    for (double centrality : harmonic_centralities) {
         cout << centrality << " ";
     }
     cout << endl;
@@ -238,8 +148,6 @@ int main()
 
     print_degree_centrality(g);
     print_closeness_centrality(g);
-    print_eigenvector_centrality(g);
-    print_harmonic_centrality(g);
 
     return 0;
 }

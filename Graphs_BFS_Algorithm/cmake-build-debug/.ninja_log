@@ -1,9 +1,0 @@
-# ninja log v5
-4	599	1729524155649163749	CMakeFiles/Graphs_BFS_Algorithm.dir/main.cpp.o	69e9230caa5815ca
-4	643	1729524155694919862	CMakeFiles/Graphs_BFS_Algorithm.dir/BFS.cpp.o	940d17011a82b151
-643	759	1729524155811173296	Graphs_BFS_Algorithm	df262b73fffd5b13
-4	612	1729524155664056924	CMakeFiles/Graphs_BFS_Algorithm.dir/Graph.cpp.o	db17bf6d6694ebe
-3	453	1729524712073456447	CMakeFiles/Graphs_BFS_Algorithm.dir/main.cpp.o	69e9230caa5815ca
-3	482	1729524712101524620	CMakeFiles/Graphs_BFS_Algorithm.dir/Graph.cpp.o	db17bf6d6694ebe
-4	609	1729524712227502690	CMakeFiles/Graphs_BFS_Algorithm.dir/Search.cpp.o	a9b7924d3f301cce
-609	653	1729524712275475594	Graphs_BFS_Algorithm	20a0d033b7d86454
